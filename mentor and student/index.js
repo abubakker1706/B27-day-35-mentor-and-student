@@ -1,19 +1,19 @@
 const express=require('express');
-//import dotenv from "dotenv";
+import dotenv from "dotenv";
 
 
 
-//dotenv.config();
+dotenv.config();
 const app = express();
 const PORT = 3000;
 app.use(express.json());
 
-const MONGO_URL= "mongodb+srv://abu123:abu123456@cluster0.vmj1f.mongodb.net/PasswordRestFlow?retryWrites=true&w=majority";
+
 
 
 
 async function createConnection(){
-     const client = new MongoClient(MONGO_URL);
+     const client = new MongoClient(process.env.MONGO_URL);
      await client.connect();
     console.log("sucessfully connected");
     return client;  
